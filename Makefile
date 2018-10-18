@@ -2,6 +2,7 @@ test:
 	python -m pytest tests/
 
 PORT = 8000
+HOST = localhost
 run:
-	gunicorn --bind 0.0.0.0:$(PORT) -k geventwebsocket.gunicorn.workers.GeventWebSocketWorker hardwarecheckout:app 
+	gunicorn --bind $(HOST):$(PORT) -k geventwebsocket.gunicorn.workers.GeventWebSocketWorker hardwarecheckout:app 
 
